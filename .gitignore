@@ -1,0 +1,58 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C Extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+dist/
+build/
+*.egg-info/
+
+# Flask specific
+instance/
+.webassets-cache
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+*.cover
+*.py,cover
+.hypothesis/
+
+# Pytest cache
+.cache
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environments
+.env
+.env.local
+.venv
+venv/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Other
+*.log
+crossref-test.
+references.txt

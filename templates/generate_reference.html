@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+
+{% block title %}Generar Referencia{% endblock %}
+
+{% block content %}
+    <h1 class="title">Generador de Referencias Bibliográficas</h1>
+    
+    <div class="tabs is-centered">
+        <ul>
+            <li id="doi-tab" class="is-active"><a>Por DOI</a></li>
+            <li id="isbn-tab"><a>Por ISBN</a></li>
+            <li id="url-tab"><a>Por URL</a></li>
+            <li id="all-tab"><a>Todos los Formatos</a></li>
+        </ul>
+    </div>
+
+    <!-- Formularios en Pestañas -->
+    <div id="doi-content" class="tab-content">
+        <div class="box">
+            <h2 class="subtitle">Generar Referencia a partir de DOI</h2>
+            <form action="/generate_reference" method="post">
+                {{ form.hidden_tag() }}
+                <div class="field">
+                    <label class="label">Enlace del Paper (DOI)</label>
+                    <div class="control">
+                        {{ form.link(class_='input') }}
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Estilo de Cita</label>
+                    <div class="control">
+                        {{ form.style(class_='select') }}
+                    </div>
+                </div>
+                <div class="control">
+                    <button class="button is-primary" type="submit">Generar Referencia</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="isbn-content" class="tab-content is-hidden">
+        <div class="box">
+            <h2 class="subtitle">Generar Referencia a partir de ISBN</h2>
+            <form action="/generate_book_reference" method="post">
+                <div class="field">
+                    <label class="label">ISBN del Libro</label>
+                    <div class="control">
+                        <input type="text" name="isbn" class="input" placeholder="Introduce el ISBN">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Estilo de Cita</label>
+                    <div class="control">
+                        <select name="style" class="select">
+                            <option value="APA">APA</option>
+                            <option value="Chicago">Chicago</option>
+                            <option value="MLA">MLA</option>
+                            <option value="Harvard">Harvard</option>
+                            <option value="IEEE">IEEE</option>
+                            <option value="UNE-ISO 690:2024">UNE-ISO 690:2024</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="control">
+                    <button class="button is-link" type="submit">Generar Referencia</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="url-content" class="tab-content is-hidden">
+        <div class="box">
+            <h2 class="subtitle">Generar Referencia a partir de URL</h2>
+            <form action="/generate_web_reference" method="post">
+                <div class="field">
+                    <label class="label">URL de la Página Web</label>
+                    <div class="control">
+                        <input type="text" name="url" class="input" placeholder="Introduce la URL">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Estilo de Cita</label>
+                    <div class="control">
+                        <select name="style" class="select">
+                            <option value="APA">APA</option>
+                            <option value="Chicago">Chicago</option>
+                            <option value="MLA">MLA</option>
+                            <option value="Harvard">Harvard</option>
+                            <option value="IEEE">IEEE</option>
+                            <option value="UNE-ISO 690:2024">UNE-ISO 690:2024</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="control">
+                    <button class="button is-warning" type="submit">Generar Referencia</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="all-content" class="tab-content is-hidden">
+        <div class="box">
+            <h2 class="subtitle">Mostrar Todas las Referencias</h2>
+            <form action="/all_reference" method="post">
+                <div class="field">
+                    <label class="label">Enlace del Paper para Todas las Referencias</label>
+                    <div class="control">
+                        <input type="text" name="link" class="input" placeholder="Introduce el enlace">
+                    </div>
+                </div>
+                <div class="control">
+                    <button class="button is-info" type="submit">Mostrar Todas las Referencias</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <a class="button is-light" href="/">Volver al Inicio</a>
+
+    <script>
+        // Script para manejar las pestañas
+        document.querySelectorAll('.tabs ul li').forEach(tab => {
+            tab.addEventListener('click', event => {
+                // Ocultar todas las pestañas
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.add('is-hidden');
+                });
+                // Desactivar todas las pestañas
+                document.querySelectorAll('.tabs ul li').forEach(tab => {
+                    tab.classList.remove('is-active');
+                });
+                // Mostrar la pestaña seleccionada
+                const contentId = tab.id.replace('tab', 'content');
+                document.getElementById(contentId).classList.remove('is-hidden');
+                // Activar la pestaña seleccionada
+                tab.classList.add('is-active');
+            });
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Todos los Formatos{% endblock %}
+
+{% block content %}
+    <h1 class="title">Todos los formatos para la referencia</h1>
+    {% for style, reference in references.items() %}
+        <div class="box">
+            <h2 class="subtitle">{{ style }}</h2>
+            <p>{{ reference }}</p>
+        </div>
+    {% endfor %}
+    <a class="button is-link" href="/">Volver al Inicio</a>
+{% endblock %}
