@@ -15,7 +15,7 @@ CitationApp es una herramienta versátil que genera referencias bibliográficas 
 
 1. Clona el repositorio:
     ```sh
-    git clone https://github.com/tu_usuario/CitationApp.git
+    git clone https://github.com/gabrielbaute/CitationApp
     cd CitationApp
     ```
 
@@ -68,5 +68,5 @@ Este proyecto está bajo la licencia MIT. Consulta el archivo [LICENSE](LICENSE)
 
 ---
 
-Desarrollado con ❤️ por [Gabriel Fernando](https://github.com/gabrielbaute)
+Desarrollado con ❤️ en Python por [Gabriel Fernando](https://github.com/gabrielbaute)
 ```
