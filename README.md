@@ -69,4 +69,3 @@ Este proyecto está bajo la licencia MIT. Consulta el archivo [LICENSE](LICENSE)
 ---
 
 Desarrollado con ❤️ en Python por [Gabriel Fernando](https://github.com/gabrielbaute)
-```
