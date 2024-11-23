@@ -6,7 +6,7 @@ etiquette = Etiquette(
     application_name = 'CittationApp',
     application_version = '0.1.0',
     application_url = 'None',
-    contact_email = 'gabrielbaute@gmail.com'
+    contact_email = 'yourmail@mail.com'
 )
 
 works = Works(etiquette=etiquette)
